@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 const CheckoutModal = (props) => {
   return (
@@ -16,19 +17,30 @@ const CheckoutModal = (props) => {
           <h4>Total Cost: ${props.totalCost}</h4>
           <h4>Order Summary :</h4>
           <br/>
-            {props.items}
             <ListGroup>
-              <ListGroup.Item>{props.items}</ListGroup.Item>
-              <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-              <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-              <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-              <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+              {/* Iterates through items ordered and displays then as List Items */}
+              {props.items.map((item, key) => {
+                return(
+                  <ListGroup.Item>{props.items[key]}</ListGroup.Item>
+                );
+              })}
             </ListGroup>
+            {/* Display error if order does not contain a bike */}
+            {props.containsBike === false ?
+              <p>Error! Your purchase must include a bike.</p>
+              : null
+            }
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.handleClose}>
-            Submit Order
-          </Button>
+          <Link to="/success">
+            {/* Removes Submit button and prevents redirect to sucess page if order doesn't contain a bike */}
+            {props.containsBike === true ?
+              <Button variant="secondary" onClick={props.handleClose}>
+                Submit Order
+              </Button>
+              : null
+            }
+          </Link>
           <Button variant="primary" onClick={props.handleClose}>
             Cancel
           </Button>

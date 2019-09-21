@@ -22,6 +22,8 @@ const STYLES = styled.div`
     display: flex;
     flexDirection: row;
     flex-wrap: wrap;
+    margin-top: 5em;
+    margin-bottom: 5em;
   }
 
   .card {
@@ -58,6 +60,8 @@ const BUTTON = styled(Button)`
   background: #e91516 !important;
   border: 1px solid #e91516 !important;
   width: 10em;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 
@@ -69,7 +73,7 @@ class Rentals extends Component {
       data: [],
       totalCost: '',
       items: [],
-      show: true,
+      show: false,
       orderSuccess: true,
       orderFail: false,
       containsBike: false
@@ -100,9 +104,9 @@ class Rentals extends Component {
       });
     }
     this.setState({
-        // Call Number to on the values so they can be added together
+        // Call Number on the values so they can be added together
         totalCost:  Number(this.state.totalCost) + Number(e.target.value),
-        // Addes purchased items to array
+        // Adds purchased items to array
         items: [...this.state.items, e.target.name]
     });
   };
@@ -165,17 +169,13 @@ class Rentals extends Component {
               show={this.state.show}
               totalCost={this.state.totalCost}
               items={this.state.items}
+              containsBike={this.state.containsBike}
             />
           </Col>
         </Row>
         <Row>
           <Col className="card-container">
             {myData}
-            {
-              (this.state.orderSuccess === true)
-              ? <h3>Success</h3>
-              : <h3>Fail</h3>
-            }
           </Col>
         </Row>
       </Container>
