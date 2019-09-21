@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import { accounting } from 'accounting';
 
 const CheckoutModal = (props) => {
   return (
@@ -14,7 +15,9 @@ const CheckoutModal = (props) => {
           <Modal.Title>Checkout</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Total Cost: ${props.totalCost}</h4>
+          <h4>Total Cost:
+            {accounting.formatMoney(props.totalCost)}
+          </h4>
           <h4>Order Summary :</h4>
           <br/>
             <ListGroup>
