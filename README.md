@@ -1,9 +1,6 @@
-## Topview Interview Assignment
-<br/>
-<br/>
-<br/>
-<br/>
+# Topview Interview Assignment
 
+### Project hosted on surge.sh : [Link to my project](https://topview.surge.sh/ "Project link")
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
