@@ -5,15 +5,24 @@ import {accounting} from 'accounting';
 
 const STYLES = styled.div`
 
+  .total-container {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    span {
+      font-size: 2em;
+    }
+  }
 `;
+
 
 const Total = (props) => {
   return (
     <STYLES>
         <Row>
-          <Col xs={{span: 6, offset: 3}} md={{span: 4, offset: 4}}>
-            <p>Total : </p>
-            {accounting.formatMoney(props.totalCost)}
+          <Col xs={{span: 6, offset: 3}} md={{span: 4, offset: 4}} className="total-container">
+            <span>Total : </span>
+            <span>{accounting.formatMoney(props.totalCost)}</span>
           </Col>
         </Row>
     </STYLES>

@@ -59,7 +59,6 @@ const BUTTON = styled(Button)`
   margin: 1em;
   background: #e91516 !important;
   border: 1px solid #e91516 !important;
-  width: 10em;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -159,7 +158,7 @@ class Rentals extends Component {
         <Row>
           <Col xs={12}>
             <img src={logo} alt="Topview Logo"/>
-            <h2 className="text-center">Bikes for rent</h2>
+            <h2 className="text-center">Bike Rentals</h2>
           </Col>
           <Col xs={12}>
             <Total totalCost={this.state.totalCost} checkout={this.checkout}/>

@@ -30,7 +30,7 @@ const CheckoutModal = (props) => {
             </ListGroup>
             {/* Display error if order does not contain a bike */}
             {props.containsBike === false ?
-              <p>Error! Your purchase must include a bike.</p>
+              <p className="text-danger">Error! Your purchase must include a bike.</p>
               : null
             }
         </Modal.Body>
